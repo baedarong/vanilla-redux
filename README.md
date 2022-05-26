@@ -7,7 +7,7 @@ learning vallila Redux (not based on React)
 # 1.1 store and reducer
 
 Store는 application의 data를 저장하는 곳이다.
-스토어를 생성하는reateStore는 reducer 함수를 요구한다.
+스토어를 생성하는 createStore는 reducer 함수를 요구한다.
 reducer는 data를 modify 해주는 함수로 reducer가 return하는 것은 application의 data가 된다.
 
 ```
@@ -36,3 +36,10 @@ store.subscribe(func); // store안의 변화를 감지하면 func 실행
 ✅ action : reducer와 소통하는 방법으로 Object여야 하며 그 key 이름은 항상 type임 (바꿀 수 없음)
 ✅ dispatch : reducer에게 action을 보내는 방법
 ✅ subscribe : store의 변화를 감지하면 인자값으로 준 함수를 실행
+
+# 2.1 state mutation
+
+● state는 single source of truth이며, read-only이다
+● store을 수정할 수 있는 유일한 방법은 action을 보내는 방법뿐이다.
+● state를 mutate하지 말아야한다.
+▷ mutating state하는 대신에 new state objects를 리턴해야 한다.
